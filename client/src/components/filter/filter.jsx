@@ -15,6 +15,7 @@ const Filter = ({
         <span>Order </span>
         <div className={styles.selectContainer}>
           <select name="" onChange={order} className={styles.selectororder}>
+            <option value=""></option>
             <option value="ascendente">Ascendente</option>
             <option value="descendente">Descendente</option>
           </select>
@@ -24,6 +25,7 @@ const Filter = ({
         <span>Order by attack</span>
         <div className={styles.selectContainer}>
           <select name="" onChange={orderByAttack}>
+            <option value=""></option>
             <option value="ascendente">Ascendente</option>
             <option value="descendente">Descendente</option>
           </select>
@@ -56,6 +58,7 @@ const Filter = ({
         <span>Order by defense</span>
         <div className={styles.selectContainer}>
           <select onChange={handleFilterDefense}>
+            <option value=""></option>
             <option value="ascendente">Ascendente</option>
             <option value="descendente">Descendente</option>
           </select>
