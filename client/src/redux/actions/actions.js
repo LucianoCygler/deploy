@@ -14,7 +14,7 @@ export const SET_FILTER_ORIGIN = "SET_FILTER_ORIGIN";
 export function getPokemons() {
   try {
     return async function (dispatch) {
-      const response = await axios.get("http://localhost:3001/pokemons");
+      const response = await axios.get("/pokemons");
       return dispatch({
         type: GET_POKEMONS,
         payload: response.data,
@@ -27,9 +27,7 @@ export function getPokemons() {
 export function getByName(name) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/pokemons/?name=${name}`
-      );
+      const response = await axios.get(`/pokemons/?name=${name}`);
       return dispatch({
         type: GET_BY_NAME,
         payload: response.data,
@@ -42,7 +40,7 @@ export function getByName(name) {
 export function getById(id) {
   try {
     return async function (dispatch) {
-      const response = await axios.get(`http://localhost:3001/pokemons/${id}`);
+      const response = await axios.get(`/pokemons/${id}`);
       return dispatch({
         type: GET_BY_ID,
         payload: response.data,
@@ -69,10 +67,7 @@ export const setFilterOrigin = (origin) => {
 export function createPokemon(newPokemon) {
   try {
     return async function (dispatch) {
-      const response = await axios.post(
-        `http://localhost:3001/pokemons`,
-        newPokemon
-      );
+      const response = await axios.post(`/pokemons`, newPokemon);
       return dispatch({
         type: CREATE_POKEMON,
         payload: response.data,
@@ -85,7 +80,7 @@ export function createPokemon(newPokemon) {
 export function getTypes() {
   try {
     return async function (dispatch) {
-      const response = await axios.get("http://localhost:3001/types");
+      const response = await axios.get("/types");
       return dispatch({
         type: GET_TYPES,
         payload: response.data,
