@@ -92,22 +92,22 @@ const Home = () => {
     dispatch(orderPokemonsByDefense(e.target.value));
   };
 
-  async function deletePokemonById(pokemonId) {
-    try {
-      const pokemon = await Pokemon.findOne({ where: { id: pokemonId } });
+  // async function deletePokemonById(pokemonId) {
+  //   try {
+  //     const pokemon = await Pokemon.findOne({ where: { id: pokemonId } });
 
-      if (!pokemon) {
-        throw new Error("Pokemon no encontrado");
-      }
+  //     if (!pokemon) {
+  //       throw new Error("Pokemon no encontrado");
+  //     }
 
-      await pokemon.destroy();
-    } catch (error) {
-      throw new Error(`Error al eliminar el pokemon: ${error.message}`);
-    }
-  }
-  const handleDelete = async (id) => {
-    await deletePokemonById(id);
-  };
+  //     await pokemon.destroy();
+  //   } catch (error) {
+  //     throw new Error(`Error al eliminar el pokemon: ${error.message}`);
+  //   }
+  // }
+  // const handleDelete = async (id) => {
+  //   await deletePokemonById(id);
+  // };
   useEffect(() => {
     dispatch(getPokemons());
     dispatch(getTypes());
@@ -140,7 +140,7 @@ const Home = () => {
 
       {showSearchResults ? (
         <div>
-          <Cards allPokemons={pokemon} handleDelete={handleDelete} />
+          <Cards allPokemons={pokemon} />
           <button onClick={() => setShowSearchResults(false)}>Return</button>
         </div>
       ) : (
