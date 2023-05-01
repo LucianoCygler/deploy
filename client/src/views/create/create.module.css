@@ -1,0 +1,33 @@
+form {
+  margin: 0 auto;
+  margin-top: 3em;
+  width: 50%;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 25%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.caja {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.caja small {
+  color: rgb(113, 5, 5);
+  margin: 0.5em;
+}
