@@ -6,7 +6,7 @@ import Detail from "./views/detail/detail";
 import Create from "./views/create/create";
 
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://deploy-production-b185.up.railway.app/";
 function App() {
   return (
     <Routes>
