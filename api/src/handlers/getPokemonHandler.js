@@ -23,6 +23,7 @@ const getPokemonHandler = async (req, res) => {
           height: pokemonFromDatabase.height,
           weight: pokemonFromDatabase.weight,
           types: pokemonFromDatabase.Types.map((type) => type.name),
+          createdInDb: pokemonFromDatabase.createdInDb,
         };
         res.status(200).send(formattedPokemon);
       } else {
