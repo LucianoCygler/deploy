@@ -32,7 +32,9 @@ const Detail = () => {
   };
   return (
     <div className={styles.contenedor}>
-      {pokemon?.createdInDb ? <button onClick={handleDelete}>X</button> : null}
+      {pokemon?.createdInDb ? (
+        <button onClick={handleDelete}>Eliminar</button>
+      ) : null}
 
       <div className={styles.imagen}>
         <img src={pokemon?.image}></img>
