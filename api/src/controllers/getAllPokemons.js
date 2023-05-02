@@ -2,7 +2,7 @@ const axios = require("axios");
 const { Pokemon, Type } = require("../db");
 
 async function getAllPokemons() {
-  const url = `https://pokeapi.co/api/v2/pokemon?limit=60`;
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=120`;
   const response = await axios.get(url);
   const pokemons = response.data.results;
 
