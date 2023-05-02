@@ -3,7 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { clearDetail, getById } from "../../redux/actions/actions";
+import {
+  clearDetail,
+  deletePokemon,
+  getById,
+} from "../../redux/actions/actions";
 const Detail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
