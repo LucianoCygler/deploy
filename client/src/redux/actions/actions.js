@@ -5,6 +5,7 @@ export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_BY_ID = "GET_BY_ID";
 export const GET_TYPES = "GET_TYPES";
 export const CREATE_POKEMON = "CREATE_POKEMON";
+export const DELETE_POKEMON = "DELETE_POKEMON";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const ORDER = "ORDER";
 export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
@@ -107,5 +108,19 @@ export const orderPokemonsByDefense = (id) => {
   return {
     type: ORDER_BY_DEFENSE,
     payload: id,
+  };
+};
+
+export const deletePokemon = (name) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.delete(`/pokemons/${name}`);
+      return dispatch({
+        type: DELETE_POKEMON,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 };

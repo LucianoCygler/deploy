@@ -21,8 +21,15 @@ const Detail = () => {
     navigate(-1);
   };
 
+  const handleDelete = () => {
+    dispatch(deletePokemon(pokemon.name));
+    alert("Pokemon eliminado con exito");
+    navigate("/home");
+  };
   return (
     <div className={styles.contenedor}>
+      {pokemon?.createdInDb ? <button onClick={handleDelete}>X</button> : null}
+
       <div className={styles.imagen}>
         <img src={pokemon?.image}></img>
       </div>

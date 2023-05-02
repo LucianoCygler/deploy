@@ -5,6 +5,7 @@ import {
   SET_FILTER_TYPE,
   GET_BY_ID,
   CREATE_POKEMON,
+  DELETE_POKEMON,
   GET_TYPES,
   CLEAR_DETAIL,
   ORDER,
@@ -44,6 +45,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredPokemons: [...state.filteredPokemons, action.payload],
+      };
+    case DELETE_POKEMON:
+      const deletedPokemonId = action.payload.id;
+      const temporal = state.filteredPokemons.filter(
+        (pokemon) => pokemon.id !== deletedPokemonId
+      );
+
+      return {
+        ...state,
+        filteredPokemons: temporal,
       };
     case GET_TYPES:
       return {
