@@ -20,6 +20,7 @@ import Filter from "../../components/filter/filter";
 import styles from "./home.module.css";
 const Home = () => {
   const pokemon = useSelector((state) => state.selected);
+  const types = useSelector((state) => state.types);
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.filteredPokemons);
   const [currentPage, setCurrentPage] = useState(1);
@@ -93,15 +94,16 @@ const Home = () => {
   };
   useEffect(() => {
     dispatch(getPokemons());
-
     dispatch(getTypes());
   }, [dispatch]);
+
   useEffect(() => {
     const totalPages = Math.ceil(allPokemons.length / pokemonsPerPage);
     if (currentPage > totalPages) {
       setCurrentPage(1);
     }
   }, [allPokemons]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowError(true);
@@ -118,7 +120,7 @@ const Home = () => {
       ></meta>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       <Filter
-        typesList={typesList}
+        types={types}
         order={order}
         handleFilterOrigin={handleFilterOrigin}
         orderByAttack={orderByAttack}
