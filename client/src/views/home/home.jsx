@@ -20,7 +20,7 @@ import Filter from "../../components/filter/filter";
 import styles from "./home.module.css";
 const Home = () => {
   const pokemon = useSelector((state) => state.selected);
-  const types = useSelector((state) => state.types);
+  const allTypes = useSelector((state) => state.types);
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.filteredPokemons);
   const [currentPage, setCurrentPage] = useState(1);
@@ -97,7 +97,7 @@ const Home = () => {
       ></meta>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       <Filter
-        types={types}
+        allTypes={allTypes}
         order={order}
         handleFilterOrigin={handleFilterOrigin}
         orderByAttack={orderByAttack}
