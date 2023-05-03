@@ -44,6 +44,7 @@ const Home = () => {
   };
 
   const [searchString, setSearchString] = useState("");
+  const [showError, setShowError] = useState(false);
 
   const typesList = [
     "normal",
@@ -101,7 +102,14 @@ const Home = () => {
       setCurrentPage(1);
     }
   }, [allPokemons]);
-
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowError(true);
+    }, 7000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
   return (
     <div className={styles.home}>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
@@ -123,9 +131,13 @@ const Home = () => {
 
       {!currentPokemons.length ? (
         <>
-          <div className={styles.loaderContainer}>
-            <span className={styles.loader}></span>
-          </div>
+          {showError ? (
+            <h2>0 Results found for the filters applied</h2>
+          ) : (
+            <div className={styles.loaderContainer}>
+              <span className={styles.loader}></span>
+            </div>
+          )}
         </>
       ) : (
         <>
