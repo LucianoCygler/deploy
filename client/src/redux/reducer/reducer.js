@@ -11,6 +11,7 @@ import {
   ORDER,
   ORDER_BY_ATTACK,
   ORDER_BY_DEFENSE,
+  RESET_FILTER,
 } from "../actions/actions";
 
 let initialState = {
@@ -110,6 +111,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         detail: null,
+      };
+    case RESET_FILTER:
+      return {
+        ...state,
+        filteredPokemons: state.allPokemons,
       };
     case SET_FILTER_TYPE:
       let temporalPokemons = [...state.allPokemons];

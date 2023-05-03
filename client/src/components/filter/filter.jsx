@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { resetFilter } from "../../redux/actions/actions";
 import styles from "./filter.module.css";
 
 const Filter = ({
@@ -8,29 +10,17 @@ const Filter = ({
   handleFilterDefense,
   orderByAttack,
 }) => {
+  const dispatch = useDispatch();
+  const handleReset = () => {
+    dispatch(resetFilter());
+    document.getElementById("filter-form").reset();
+  };
   return (
-    <div className={styles.contenedortodos}>
-      <h2 className={styles.filterby}>Filter by:</h2>
+    <form id="filter-form" className={styles.contenedortodos}>
       <div>
-        <span>Order </span>
-        <div className={styles.selectContainer}>
-          <select name="" onChange={order} className={styles.selectororder}>
-            <option value=""></option>
-            <option value="ascendente">Ascendente</option>
-            <option value="descendente">Descendente</option>
-          </select>
-        </div>
+        <h2 className={styles.filterby}>Filter by:</h2>
       </div>
-      <div>
-        <span>Order by attack</span>
-        <div className={styles.selectContainer}>
-          <select name="" onChange={orderByAttack}>
-            <option value=""></option>
-            <option value="ascendente">Ascendente</option>
-            <option value="descendente">Descendente</option>
-          </select>
-        </div>
-      </div>
+
       <div>
         <span>Types </span>
         <div className={styles.selectContainer}>
@@ -55,16 +45,44 @@ const Filter = ({
         </div>
       </div>
       <div>
-        <span>Order by defense</span>
+        <span>Order a-z </span>
         <div className={styles.selectContainer}>
-          <select onChange={handleFilterDefense}>
+          <select
+            name=""
+            onChange={order}
+            className={styles.selectororder}
+            defaultValue=""
+          >
             <option value=""></option>
-            <option value="ascendente">Ascendente</option>
-            <option value="descendente">Descendente</option>
+            <option value="ascendente">Ascending</option>
+            <option value="descendente">Descending</option>
           </select>
         </div>
       </div>
-    </div>
+      <div>
+        <span>by attack</span>
+        <div className={styles.selectContainer}>
+          <select name="" onChange={orderByAttack} defaultValue="">
+            <option value=""></option>
+            <option value="ascendente">Ascending</option>
+            <option value="descendente">Descending</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <span>by defense</span>
+        <div className={styles.selectContainer}>
+          <select onChange={handleFilterDefense} defaultValue="">
+            <option value=""></option>
+            <option value="ascendente">Ascending</option>
+            <option value="descendente">Descending</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <button onClick={handleReset}>Reset Filters</button>
+      </div>
+    </form>
   );
 };
 export default Filter;

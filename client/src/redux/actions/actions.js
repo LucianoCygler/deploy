@@ -7,6 +7,7 @@ export const GET_TYPES = "GET_TYPES";
 export const CREATE_POKEMON = "CREATE_POKEMON";
 export const DELETE_POKEMON = "DELETE_POKEMON";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
+export const RESET_FILTER = "RESET_FILTER";
 export const ORDER = "ORDER";
 export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const ORDER_BY_DEFENSE = "ORDER_BY_DEFENSE";
@@ -122,5 +123,10 @@ export const deletePokemon = (name) => {
     } catch (error) {
       console.error(error);
     }
+  };
+};
+export const resetFilter = () => {
+  return {
+    type: RESET_FILTER,
   };
 };
