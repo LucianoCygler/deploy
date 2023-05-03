@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   clearDetail,
   getByName,
@@ -93,6 +92,7 @@ const Home = () => {
   };
   useEffect(() => {
     dispatch(getPokemons());
+
     dispatch(getTypes());
   }, [dispatch]);
   useEffect(() => {
@@ -121,14 +121,27 @@ const Home = () => {
         currentPage={currentPage}
       />
 
-      {showSearchResults ? (
-        <div>
-          <Cards allPokemons={pokemon} />
-          <button onClick={() => setShowSearchResults(false)}>Return</button>
-        </div>
+      {!currentPokemons.length ? (
+        <>
+          <div className={styles.loaderContainer}>
+            <span className={styles.loader}></span>
+          </div>
+        </>
       ) : (
-        <Cards allPokemons={currentPokemons} />
+        <>
+          {showSearchResults ? (
+            <div>
+              <Cards allPokemons={pokemon} />
+              <button onClick={() => setShowSearchResults(false)}>
+                Return
+              </button>
+            </div>
+          ) : (
+            <Cards allPokemons={currentPokemons} />
+          )}
+        </>
       )}
+
       <Paginado
         className={styles.paginado}
         pokemonsPerPage={pokemonsPerPage}
