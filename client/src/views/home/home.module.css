@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -49,7 +52,7 @@ code {
     transform: rotate(360deg);
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   body {
     font-size: 14px;
     width: 100%;
