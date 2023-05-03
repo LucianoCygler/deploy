@@ -112,6 +112,10 @@ const Home = () => {
   }, []);
   return (
     <div className={styles.home}>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      ></meta>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       <Filter
         typesList={typesList}
