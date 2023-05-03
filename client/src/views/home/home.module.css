@@ -49,8 +49,11 @@ code {
     transform: rotate(360deg);
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 1200px) {
   body {
     font-size: 14px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
