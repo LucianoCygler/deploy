@@ -3,6 +3,11 @@
   width: 30%;
   background-color: rgb(106, 143, 131);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  padding: 20px;
 }
 .stats {
   display: grid;
@@ -22,16 +27,9 @@
 }
 /* detail.module.css */
 
-.contenedor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
 .imagen {
-  margin-top: 1em;
+  margin-top: 1px;
 }
-
 .imagen img {
   width: 300px;
   height: 300px;
@@ -72,4 +70,8 @@ button {
 
 button:hover {
   background-color: #f082ac;
+}
+.delete {
+  margin: 1em;
+  padding: 1em;
 }

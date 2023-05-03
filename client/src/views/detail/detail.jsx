@@ -31,47 +31,50 @@ const Detail = () => {
     navigate("/home");
   };
   return (
-    <div className={styles.contenedor}>
-      {pokemon?.createdInDb ? (
-        <button onClick={handleDelete}>Eliminar</button>
-      ) : null}
+    <>
+      <div className={styles.contenedor}>
+        <div className={styles.delete}>
+          {pokemon?.createdInDb ? (
+            <button onClick={handleDelete}>Delete Pokemon</button>
+          ) : null}
+        </div>
+        <div className={styles.imagen}>
+          <img src={pokemon?.image}></img>
+        </div>
 
-      <div className={styles.imagen}>
-        <img src={pokemon?.image}></img>
-      </div>
+        <h2>{pokemon?.name}</h2>
+        <div className={styles.stats}>
+          <p>
+            hp <p>{pokemon?.hp}</p>
+          </p>
+          <p>
+            attack <p>{pokemon?.attack}</p>
+          </p>
+          <p>
+            defense <p>{pokemon?.defense}</p>
+          </p>
+          <p>
+            height <p>{pokemon?.height}</p>
+          </p>
+          <p>
+            speed <p>{pokemon?.speed}</p>
+          </p>
+          <p>
+            weight <p>{pokemon?.weight}</p>
+          </p>
+        </div>
+        <h3>Types:</h3>
+        <div className={styles.type}>
+          {pokemon?.types ? (
+            pokemon.types.map((type) => <p>{type}</p>)
+          ) : (
+            <p>Loading types...</p>
+          )}
+        </div>
 
-      <h2>{pokemon?.name}</h2>
-      <div className={styles.stats}>
-        <p>
-          hp <p>{pokemon?.hp}</p>
-        </p>
-        <p>
-          attack <p>{pokemon?.attack}</p>
-        </p>
-        <p>
-          defense <p>{pokemon?.defense}</p>
-        </p>
-        <p>
-          height <p>{pokemon?.height}</p>
-        </p>
-        <p>
-          speed <p>{pokemon?.speed}</p>
-        </p>
-        <p>
-          weight <p>{pokemon?.weight}</p>
-        </p>
+        <button onClick={handleBack}>Back</button>
       </div>
-      <h3>Types:</h3>
-      <div className={styles.type}>
-        {pokemon?.types ? (
-          pokemon.types.map((type) => <p>{type}</p>)
-        ) : (
-          <p>Loading types...</p>
-        )}
-      </div>
-
-      <button onClick={handleBack}>Back</button>
-    </div>
+    </>
   );
 };
 export default Detail;
