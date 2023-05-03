@@ -52,22 +52,3 @@ code {
     transform: rotate(360deg);
   }
 }
-@media screen and (max-width: 1300px) {
-  body {
-    font-size: 14px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .home {
-    width: 100%;
-  }
-  .filters {
-    width: 100%;
-  }
-
-  .cards {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-}

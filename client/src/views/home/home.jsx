@@ -118,7 +118,6 @@ const Home = () => {
       ></meta>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       <Filter
-        className={styles.filters}
         typesList={typesList}
         order={order}
         handleFilterOrigin={handleFilterOrigin}
@@ -148,7 +147,7 @@ const Home = () => {
         <>
           {showSearchResults ? (
             <div>
-              <Cards allPokemons={pokemon} className={styles.cards} />
+              <Cards allPokemons={pokemon} />
               <button onClick={() => setShowSearchResults(false)}>
                 Return
               </button>
