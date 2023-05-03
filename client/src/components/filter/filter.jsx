@@ -3,7 +3,7 @@ import { resetFilter } from "../../redux/actions/actions";
 import styles from "./filter.module.css";
 
 const Filter = ({
-  allTypes,
+  typesList,
   handleFilterType,
   handleFilterOrigin,
   order,
@@ -26,7 +26,7 @@ const Filter = ({
         <div className={styles.selectContainer}>
           <select onChange={handleFilterType}>
             <option value="All">All</option>
-            {allTypes?.map((type, index) => (
+            {typesList.map((type, index) => (
               <option key={index} value={type}>
                 {type}
               </option>

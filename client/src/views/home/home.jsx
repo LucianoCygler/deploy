@@ -20,7 +20,6 @@ import Filter from "../../components/filter/filter";
 import styles from "./home.module.css";
 const Home = () => {
   const pokemon = useSelector((state) => state.selected);
-  const allTypes = useSelector((state) => state.types);
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.filteredPokemons);
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,6 +45,29 @@ const Home = () => {
 
   const [searchString, setSearchString] = useState("");
   const [showError, setShowError] = useState(false);
+
+  const typesList = [
+    "normal",
+    "fighting",
+    "flying",
+    "poison",
+    "ground",
+    "rock",
+    "bug",
+    "ghost",
+    "steel",
+    "fire",
+    "water",
+    "grass",
+    "electric",
+    "psychic",
+    "ice",
+    "dragon",
+    "dark",
+    "fairy",
+    "unknown",
+    "shadow",
+  ];
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -97,7 +119,7 @@ const Home = () => {
       ></meta>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       <Filter
-        allTypes={allTypes}
+        typesList={typesList}
         order={order}
         handleFilterOrigin={handleFilterOrigin}
         orderByAttack={orderByAttack}
