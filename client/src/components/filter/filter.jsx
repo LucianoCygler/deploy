@@ -26,7 +26,7 @@ const Filter = ({
         <div className={styles.selectContainer}>
           <select onChange={handleFilterType}>
             <option value="All">All</option>
-            {types.map((type, index) => (
+            {types?.map((type, index) => (
               <option key={index} value={type}>
                 {type}
               </option>

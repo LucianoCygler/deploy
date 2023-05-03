@@ -47,29 +47,6 @@ const Home = () => {
   const [searchString, setSearchString] = useState("");
   const [showError, setShowError] = useState(false);
 
-  const typesList = [
-    "normal",
-    "fighting",
-    "flying",
-    "poison",
-    "ground",
-    "rock",
-    "bug",
-    "ghost",
-    "steel",
-    "fire",
-    "water",
-    "grass",
-    "electric",
-    "psychic",
-    "ice",
-    "dragon",
-    "dark",
-    "fairy",
-    "unknown",
-    "shadow",
-  ];
-
   const handleChange = (e) => {
     e.preventDefault();
     setSearchString(e.target.value);
