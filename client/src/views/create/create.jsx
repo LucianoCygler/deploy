@@ -4,9 +4,13 @@ import { createPokemon } from "../../redux/actions/actions";
 import styles from "./create.module.css";
 import { Link } from "react-router-dom";
 import { validate } from "./validate";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const dispatch = useDispatch();
+  const allPokemons = useSelector((state) => state.allPokemons);
+  const navigate = useNavigate();
 
   const typesList = [
     "normal",
@@ -64,7 +68,8 @@ const Create = () => {
         [e.target.name]: e.target.value,
       },
       errors,
-      setErrors
+      setErrors,
+      allPokemons
     );
   };
 
@@ -107,6 +112,7 @@ const Create = () => {
         type2: "",
       });
       alert("Pokemon creado con exito");
+      navigate("/home");
     } else {
       alert("Por favor, complete los campos del formulario");
     }

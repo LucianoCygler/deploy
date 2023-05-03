@@ -1,4 +1,4 @@
-export const validate = (input, errors, setErrors) => {
+export const validate = (input, errors, setErrors, allPokemons) => {
   let newErrors = { ...errors };
   const {
     name,
@@ -19,6 +19,10 @@ export const validate = (input, errors, setErrors) => {
     newErrors.name = "Name must have at least 3 characters";
   else if (name.length > 250)
     newErrors.name = "Name must have less than 250 characters";
+  else if (
+    allPokemons?.some((pokemon) => pokemon.name === name.trim().toLowerCase())
+  )
+    newErrors.name = "Name already in use";
   else newErrors.name = "";
 
   if (!image) newErrors.image = "Image cannot be empty";
