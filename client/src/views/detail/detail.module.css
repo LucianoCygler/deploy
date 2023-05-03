@@ -28,6 +28,9 @@
   align-items: center;
   padding: 20px;
 }
+.imagen {
+  margin-top: 1em;
+}
 
 .imagen img {
   width: 300px;
